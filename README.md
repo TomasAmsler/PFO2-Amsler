@@ -13,7 +13,7 @@ Fecha de Entrega: 26 de Junio de 2026
 Despliegue (Deploy)
 
 El proyecto se encuentra unificado y desplegado en la plataforma Vercel a través del siguiente enlace:
-  Link del enlace:
+  Link del enlace: https://pfo-2-amsler.vercel.app/
 
   Prompt exacto Utilizado:
     Rol: Eres un Ingeniero de Software Frontend Senior experto en UX/UI y maquetación web limpia, moderna y responsiva.
