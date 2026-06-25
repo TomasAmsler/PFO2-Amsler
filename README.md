@@ -33,3 +33,17 @@ Estructura Obligatoria de la Landing Page (Crear todas las secciones en el mismo
 5. Testimonios
 6. Formulario de Contacto (Visual)
 7. Pie de Página (Footer)
+
+Capturas de los sitios web:
+<img width="1420" height="902" alt="1" src="https://github.com/user-attachments/assets/4f3878fa-e64c-4269-a595-e0f79e118d06" />
+<img width="1311" height="596" alt="2" src="https://github.com/user-attachments/assets/b963e9d6-2c09-4837-93ea-440a565c0aba" />
+<img width="1265" height="805" alt="3" src="https://github.com/user-attachments/assets/0cb0d7a8-3543-4ce0-af4e-38d53e3a1347" />
+
+-----
+
+<img width="1319" height="809" alt="1a" src="https://github.com/user-attachments/assets/c6f45ed5-44ac-4833-9dd5-8de551156c3d" />
+<img width="1529" height="787" alt="2a" src="https://github.com/user-attachments/assets/9a1c7c3e-c3a6-4646-8608-cafb9998b52c" />
+<img width="1459" height="881" alt="3a" src="https://github.com/user-attachments/assets/f10e9b51-733d-4153-96d7-c355990d9c0b" />
+
+
+
