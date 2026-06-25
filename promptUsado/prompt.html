@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Utilizado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#0b0f19',
+                        darkCard: '#111827',
+                        neonBlue: '#00d2ff',
+                        neonPurple: '#9d4edd',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        /* Efecto de resplandor futurista de fondo */
+        .glow-bg {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,210,255,0.08) 0%, rgba(157,78,221,0.05) 50%, rgba(0,0,0,0) 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* Glassmorphism */
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex items-center justify-center p-4 sm:p-8 relative">
+
+    <div class="glow-bg top-[-10%] left-[-10%]"></div>
+    <div class="glow-bg bottom-[-10%] right-[-10%]"></div>
+
+    <main class="w-full max-w-4xl glass-effect rounded-2xl p-6 sm:p-10 shadow-2xl relative z-10 my-8">
+        <div class="flex items-center space-x-2 mb-6 text-xs font-semibold tracking-wide text-neonBlue uppercase">
+            <span class="flex h-2 w-2 rounded-full bg-neonBlue animate-pulse"></span>
+            <span>Prompt específico utilizado</span>
+        </div>
+        
+        <pre class="text-xs sm:text-sm text-gray-300 font-mono overflow-x-auto whitespace-pre-wrap bg-gray-950/60 p-4 sm:p-6 rounded-xl border border-gray-800/80 leading-relaxed"><code class="block">Rol: Eres un Ingeniero de Software Frontend Senior experto en UX/UI y maquetación web limpia, moderna y responsiva.
+
+Contexto: Necesito crear de forma completamente autónoma una Landing Page para una agencia de servicios digitales llamada "Nexxon Digital Services". El diseño debe ser moderno, con una paleta de colores profesional (sugerencia: algun estilo futurista, pero no dejando de lado el profesionalismo de la landing page), tipografía limpia (como Inter o Roboto) y espaciados amplios (componentes que respiren).
+
+Requisitos Técnicos:
+- Usa HTML5 semántico, CSS3 moderno (puedes usar Flexbox/Grid o frameworks CSS como Tailwind si está disponible en tu entorno) y JavaScript vanilla si es necesario para interactuar.
+- No uses librerías externas que requieran configuraciones complejas de backend. Todo debe funcionar del lado del cliente.
+- El diseño debe ser 100% responsivo (mobile-first), viéndose perfecto tanto en celulares como en computadoras de escritorio.
+
+Estructura Obligatoria de la Landing Page (Crear todas las secciones en el mismo archivo o estructura indexada):
+1. Cabecera (Header)
+2. Hero Section (Sección Principal)
+3. Sobre Nosotros (Descripción)
+4. Servicios (Cards)
+5. Testimonios
+6. Formulario de Contacto (Visual)
+7. Pie de Página (Footer)</code></pre>
+    </main>
+
+</body>
+</html>

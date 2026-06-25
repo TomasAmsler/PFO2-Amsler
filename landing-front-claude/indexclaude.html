@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexxon Digital Services — Ingeniería digital con señal clara</title>
+<meta name="description" content="Nexxon Digital Services: estrategia, diseño y desarrollo digital con resultados medibles para empresas que necesitan moverse rápido.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & TOKENS ============ */
+:root{
+  /* Color */
+  --bg:#F5F7FA;
+  --bg-raised:#FFFFFF;
+  --ink:#0E1320;
+  --ink-soft:#4B5468;
+  --line:#E1E6ED;
+  --signal:#2454FF;
+  --signal-dim:#E7ECFF;
+  --signal-deep:#13308C;
+  --ember:#FF6B4A;
+  --pulse-green:#16C79A;
+  --bg-dark:#0B0E16;
+  --bg-dark-raised:#11152179;
+
+  /* Type */
+  --font-display:'Space Grotesk', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+
+  /* Layout */
+  --maxw:1180px;
+  --pad:clamp(1.25rem, 4vw, 3rem);
+  --radius:14px;
+  --radius-sm:8px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  margin:0;
+  line-height:1.12;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+p{margin:0;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+input,textarea,select{font-family:inherit;}
+
+.container{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-left:var(--pad);
+  padding-right:var(--pad);
+}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:0.78rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--signal);
+  display:inline-flex;
+  align-items:center;
+  gap:0.5em;
+}
+.eyebrow::before{
+  content:"";
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--signal);
+  box-shadow:0 0 0 3px var(--signal-dim);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.5rem;
+  padding:0.85rem 1.6rem;
+  border-radius:999px;
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:0.95rem;
+  border:1.5px solid transparent;
+  transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:var(--ink);
+  color:#fff;
+}
+.btn-primary:hover{
+  background:var(--signal);
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px -8px rgba(36,84,255,0.45);
+}
+.btn-ghost{
+  background:transparent;
+  color:var(--ink);
+  border-color:var(--line);
+}
+.btn-ghost:hover{
+  border-color:var(--ink);
+  transform:translateY(-2px);
+}
+.btn:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, button:focus-visible{
+  outline:2.5px solid var(--signal);
+  outline-offset:3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+
+/* ============ SIGNAL LINE (signature element) ============ */
+.signal-rail{
+  position:relative;
+  width:100%;
+  height:2px;
+  background:var(--line);
+  overflow:hidden;
+}
+.signal-rail::after{
+  content:"";
+  position:absolute;
+  top:0; left:-30%;
+  width:30%; height:100%;
+  background:linear-gradient(90deg, transparent, var(--signal), var(--pulse-green), transparent);
+  animation:travel 3.6s linear infinite;
+}
+@keyframes travel{
+  0%{left:-30%;}
+  100%{left:100%;}
+}
+
+/* ============ HEADER ============ */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(245,247,250,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-top:1.1rem;
+  padding-bottom:1.1rem;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.25rem;
+  letter-spacing:-0.01em;
+}
+.logo-mark{
+  width:30px;height:30px;
+  border-radius:8px;
+  background:var(--ink);
+  position:relative;
+  flex:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.logo-mark svg{width:16px;height:16px;}
+.logo-mark .pulse-dot{
+  position:absolute;
+  top:-3px; right:-3px;
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--pulse-green);
+  box-shadow:0 0 0 2px var(--bg);
+  animation:blink 2.4s ease-in-out infinite;
+}
+@keyframes blink{
+  0%,100%{opacity:1;}
+  50%{opacity:0.35;}
+}
+
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:2.1rem;
+}
+.main-nav a{
+  font-size:0.95rem;
+  font-weight:500;
+  color:var(--ink-soft);
+  position:relative;
+  padding:0.25rem 0;
+  transition:color .2s ease;
+}
+.main-nav a:hover{color:var(--ink);}
+.main-nav a::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:-2px;
+  width:0; height:2px;
+  background:var(--signal);
+  transition:width .25s ease;
+}
+.main-nav a:hover::after{width:100%;}
+
+.header-actions{display:flex;align-items:center;gap:0.75rem;}
+.nav-cta{display:none;}
+@media (min-width:860px){.nav-cta{display:inline-flex;}}
+
+.nav-links-wrap{display:none;}
+@media (min-width:860px){.nav-links-wrap{display:flex;}}
+
+.menu-toggle{
+  display:flex;
+  background:none;
+  border:1.5px solid var(--line);
+  border-radius:10px;
+  padding:0.5rem 0.6rem;
+  align-items:center;
+  justify-content:center;
+}
+@media (min-width:860px){.menu-toggle{display:none;}}
+.menu-toggle svg{width:20px;height:20px;}
+
+.mobile-menu{
+  display:none;
+  flex-direction:column;
+  gap:0.2rem;
+  padding:0.5rem var(--pad) 1.5rem;
+  border-bottom:1px solid var(--line);
+  background:var(--bg);
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{
+  padding:0.85rem 0.25rem;
+  border-bottom:1px solid var(--line);
+  font-weight:500;
+  color:var(--ink-soft);
+}
+.mobile-menu a:last-of-type{border-bottom:none;}
+.mobile-menu .btn{margin-top:0.85rem;width:100%;}
+@media (min-width:860px){.mobile-menu{display:none !important;}}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  padding:clamp(3.5rem, 8vw, 6.5rem) 0 clamp(3rem, 7vw, 5rem);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  top:-200px; right:-180px;
+  width:560px; height:560px;
+  background:radial-gradient(circle, rgba(36,84,255,0.16), transparent 70%);
+  pointer-events:none;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(2.5rem, 6vw, 3.5rem);
+  align-items:center;
+}
+@media (min-width:960px){
+  .hero-grid{grid-template-columns:1.05fr 0.95fr;}
+}
+
+.hero-copy{position:relative; z-index:1;}
+.hero-eyebrow{margin-bottom:1.4rem;}
+.hero h1{
+  font-size:clamp(2.3rem, 5.6vw, 3.6rem);
+  font-weight:700;
+  margin-bottom:1.4rem;
+}
+.hero h1 .accent{color:var(--signal);}
+.hero-sub{
+  font-size:clamp(1.02rem, 1.6vw, 1.18rem);
+  color:var(--ink-soft);
+  max-width:34rem;
+  margin-bottom:2.1rem;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.9rem;
+  margin-bottom:2.6rem;
+}
+.hero-trust{
+  display:flex;
+  flex-wrap:wrap;
+  gap:clamp(1.4rem, 3vw, 2.4rem);
+  padding-top:1.8rem;
+  border-top:1px solid var(--line);
+}
+.trust-stat .num{
+  font-family:var(--font-mono);
+  font-size:1.5rem;
+  font-weight:600;
+  color:var(--ink);
+  display:block;
+}
+.trust-stat .label{
+  font-size:0.82rem;
+  color:var(--ink-soft);
+}
+
+/* ---- Signal monitor panel (hero visual) ---- */
+.signal-panel{
+  position:relative;
+  background:var(--bg-dark);
+  border-radius:18px;
+  padding:1.6rem 1.6rem 1.4rem;
+  color:#fff;
+  box-shadow:0 30px 60px -25px rgba(14,19,32,0.45);
+}
+.panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:1.1rem;
+}
+.panel-head .dots{display:flex;gap:6px;}
+.panel-head .dots span{
+  width:9px;height:9px;border-radius:50%;
+  background:rgba(255,255,255,0.18);
+}
+.panel-title{
+  font-family:var(--font-mono);
+  font-size:0.78rem;
+  letter-spacing:0.05em;
+  color:rgba(255,255,255,0.55);
+  text-transform:uppercase;
+}
+.panel-status{
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  color:var(--pulse-green);
+}
+.panel-status .dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--pulse-green);
+  animation:blink 1.8s ease-in-out infinite;
+}
+
+.wave-box{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;
+  padding:0.75rem 0.5rem;
+  margin-bottom:1rem;
+}
+.wave-box svg{width:100%;height:80px;display:block;}
+.wave-line{
+  fill:none;
+  stroke:var(--pulse-green);
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.panel-metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0.7rem;
+  margin-bottom:1rem;
+}
+.metric-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;
+  padding:0.7rem 0.65rem;
+}
+.metric-card .m-label{
+  font-family:var(--font-mono);
+  font-size:0.65rem;
+  color:rgba(255,255,255,0.5);
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  margin-bottom:0.35rem;
+  display:block;
+}
+.metric-card .m-value{
+  font-family:var(--font-mono);
+  font-size:1.05rem;
+  font-weight:600;
+  color:#fff;
+}
+.metric-card .m-value.up{color:var(--pulse-green);}
+
+.panel-log{
+  font-family:var(--font-mono);
+  font-size:0.72rem;
+  color:rgba(255,255,255,0.45);
+  display:flex;
+  flex-direction:column;
+  gap:0.35rem;
+}
+.panel-log .line{display:flex;gap:0.5rem;}
+.panel-log .line .t{color:rgba(255,255,255,0.3);flex:none;}
+.panel-log .line .tag{color:var(--signal);}
+
+/* ============ SOBRE NOSOTROS ============ */
+.about{
+  padding:clamp(4rem, 8vw, 6.5rem) 0;
+  border-top:1px solid var(--line);
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(2.5rem, 6vw, 4rem);
+}
+@media (min-width:920px){
+  .about-grid{grid-template-columns:0.85fr 1.15fr;align-items:start;}
+}
+.about-head h2{
+  font-size:clamp(1.9rem, 4vw, 2.6rem);
+  margin:1rem 0 1.3rem;
+}
+.about-head p{
+  color:var(--ink-soft);
+  font-size:1.05rem;
+  max-width:30rem;
+}
+.about-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.6rem;
+}
+@media (min-width:600px){
+  .about-list{grid-template-columns:1fr 1fr;}
+}
+.about-item{
+  padding:1.5rem;
+  background:var(--bg-raised);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+}
+.about-item .num{
+  font-family:var(--font-mono);
+  font-size:0.8rem;
+  color:var(--signal);
+  display:block;
+  margin-bottom:0.7rem;
+}
+.about-item h3{
+  font-size:1.08rem;
+  margin-bottom:0.5rem;
+}
+.about-item p{
+  font-size:0.92rem;
+  color:var(--ink-soft);
+}
+
+/* ============ SERVICIOS ============ */
+.services{
+  padding:clamp(4rem, 8vw, 6.5rem) 0;
+  background:var(--bg-raised);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.services-head{
+  max-width:38rem;
+  margin-bottom:clamp(2.4rem, 5vw, 3.4rem);
+}
+.services-head h2{
+  font-size:clamp(1.9rem, 4vw, 2.6rem);
+  margin:1rem 0 1rem;
+}
+.services-head p{
+  color:var(--ink-soft);
+  font-size:1.05rem;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.4rem;
+}
+@media (min-width:680px){
+  .services-grid{grid-template-columns:1fr 1fr;}
+}
+@media (min-width:1040px){
+  .services-grid{grid-template-columns:repeat(3,1fr);}
+}
+.service-card{
+  position:relative;
+  padding:1.8rem 1.6rem;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--bg);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.service-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 22px 40px -22px rgba(14,19,32,0.18);
+  border-color:transparent;
+}
+.service-icon{
+  width:46px;height:46px;
+  border-radius:11px;
+  background:var(--signal-dim);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:1.3rem;
+}
+.service-icon svg{width:22px;height:22px;color:var(--signal);}
+.service-card h3{
+  font-size:1.18rem;
+  margin-bottom:0.65rem;
+}
+.service-card p{
+  font-size:0.93rem;
+  color:var(--ink-soft);
+  margin-bottom:1.1rem;
+}
+.service-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.4rem;
+}
+.service-tags span{
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  padding:0.3rem 0.6rem;
+  border-radius:6px;
+  background:var(--bg-raised);
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+}
+
+/* ============ TESTIMONIOS ============ */
+.testimonials{
+  padding:clamp(4rem, 8vw, 6.5rem) 0;
+}
+.testimonials-head{
+  max-width:34rem;
+  margin-bottom:clamp(2.2rem, 5vw, 3rem);
+}
+.testimonials-head h2{
+  font-size:clamp(1.9rem, 4vw, 2.6rem);
+  margin:1rem 0 0;
+}
+.testimonials-track{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.4rem;
+}
+@media (min-width:720px){
+  .testimonials-track{grid-template-columns:1fr 1fr;}
+}
+@media (min-width:1080px){
+  .testimonials-track{grid-template-columns:repeat(3,1fr);}
+}
+.testimonial-card{
+  background:var(--bg-raised);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:1.7rem 1.6rem;
+  display:flex;
+  flex-direction:column;
+  gap:1.2rem;
+}
+.t-quote-mark{
+  font-family:var(--font-display);
+  font-size:2.4rem;
+  color:var(--signal-dim);
+  line-height:1;
+}
+.t-quote{
+  font-size:0.97rem;
+  color:var(--ink);
+  flex:1;
+}
+.t-person{
+  display:flex;
+  align-items:center;
+  gap:0.7rem;
+  padding-top:1rem;
+  border-top:1px solid var(--line);
+}
+.t-avatar{
+  width:40px;height:40px;
+  border-radius:50%;
+  background:var(--signal-deep);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:0.85rem;
+  flex:none;
+}
+.t-name{font-weight:600;font-size:0.92rem;}
+.t-role{font-size:0.82rem;color:var(--ink-soft);}
+.t-stars{display:flex;gap:2px;margin-bottom:-0.3rem;}
+.t-stars svg{width:14px;height:14px;color:var(--ember);}
+
+/* ============ CONTACTO ============ */
+.contact{
+  padding:clamp(4rem, 8vw, 6.5rem) 0;
+  background:var(--bg-raised);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(2.5rem, 6vw, 3.5rem);
+}
+@media (min-width:960px){
+  .contact-grid{grid-template-columns:0.85fr 1.15fr;}
+}
+.contact-info h2{
+  font-size:clamp(1.9rem, 4vw, 2.5rem);
+  margin:1rem 0 1.2rem;
+}
+.contact-info p{
+  color:var(--ink-soft);
+  font-size:1.02rem;
+  max-width:28rem;
+  margin-bottom:2rem;
+}
+.contact-channels{
+  display:flex;
+  flex-direction:column;
+  gap:1.1rem;
+}
+.channel{
+  display:flex;
+  align-items:center;
+  gap:0.9rem;
+}
+.channel-icon{
+  width:42px;height:42px;
+  border-radius:10px;
+  background:var(--bg);
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+}
+.channel-icon svg{width:19px;height:19px;color:var(--signal);}
+.channel-label{font-size:0.78rem;color:var(--ink-soft);}
+.channel-value{font-weight:600;font-size:0.95rem;}
+
+.contact-form{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(1.6rem, 3vw, 2.3rem);
+}
+.form-row{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.1rem;
+  margin-bottom:1.1rem;
+}
+@media (min-width:560px){
+  .form-row.two{grid-template-columns:1fr 1fr;}
+}
+.field label{
+  display:block;
+  font-size:0.85rem;
+  font-weight:600;
+  margin-bottom:0.45rem;
+}
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  padding:0.78rem 0.9rem;
+  border:1.5px solid var(--line);
+  border-radius:10px;
+  background:var(--bg-raised);
+  font-size:0.95rem;
+  color:var(--ink);
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.field input::placeholder, .field textarea::placeholder{color:#9AA3B5;}
+.field input:focus, .field textarea:focus, .field select:focus{
+  border-color:var(--signal);
+  box-shadow:0 0 0 4px var(--signal-dim);
+  outline:none;
+}
+.field textarea{resize:vertical;min-height:110px;}
+.form-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:1rem;
+  margin-top:0.4rem;
+}
+.form-note{font-size:0.8rem;color:var(--ink-soft);}
+.form-success{
+  display:none;
+  align-items:center;
+  gap:0.6rem;
+  background:rgba(22,199,154,0.1);
+  border:1px solid rgba(22,199,154,0.3);
+  color:#0E7A5F;
+  padding:0.9rem 1rem;
+  border-radius:10px;
+  font-size:0.9rem;
+  font-weight:500;
+  margin-top:1.1rem;
+}
+.form-success.show{display:flex;}
+.form-success svg{width:18px;height:18px;flex:none;}
+
+/* ============ FOOTER ============ */
+.site-footer{
+  background:var(--bg-dark);
+  color:rgba(255,255,255,0.65);
+  padding:clamp(3rem, 6vw, 4rem) 0 1.6rem;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2.5rem;
+  padding-bottom:2.4rem;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+@media (min-width:760px){
+  .footer-top{grid-template-columns:1.3fr 1fr 1fr 1fr;}
+}
+.footer-brand .logo{color:#fff;margin-bottom:0.9rem;}
+.footer-brand .logo-mark{background:#fff;}
+.footer-brand .logo-mark svg path{stroke:var(--bg-dark);}
+.footer-brand p{
+  font-size:0.9rem;
+  max-width:22rem;
+  color:rgba(255,255,255,0.5);
+}
+.footer-col h4{
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+  margin-bottom:1rem;
+}
+.footer-col ul{display:flex;flex-direction:column;gap:0.7rem;}
+.footer-col a{
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.72);
+  transition:color .2s ease;
+}
+.footer-col a:hover{color:#fff;}
+
+.footer-bottom{
+  display:flex;
+  flex-direction:column;
+  gap:1.2rem;
+  align-items:center;
+  justify-content:space-between;
+  padding-top:1.6rem;
+  text-align:center;
+}
+@media (min-width:680px){
+  .footer-bottom{flex-direction:row;text-align:left;}
+}
+.footer-bottom p{font-size:0.82rem;color:rgba(255,255,255,0.4);}
+.social-links{display:flex;gap:0.7rem;}
+.social-links a{
+  width:36px;height:36px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:border-color .2s ease, background .2s ease;
+}
+.social-links a:hover{border-color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.06);}
+.social-links svg{width:16px;height:16px;color:rgba(255,255,255,0.75);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 17L10 7L14 14L20 5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="pulse-dot" aria-hidden="true"></span>
+      </span>
+      Nexxon
+    </a>
+
+    <nav class="main-nav nav-links-wrap" aria-label="Navegación principal">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#contacto" class="btn btn-primary nav-cta">Iniciar proyecto</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="menuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="signal-rail" aria-hidden="true"></div>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Navegación móvil">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="btn btn-primary">Iniciar proyecto</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow hero-eyebrow">Agencia de servicios digitales</p>
+      <h1>Damos a tu negocio una <span class="accent">señal clara</span> en un mercado lleno de ruido.</h1>
+      <p class="hero-sub">Nexxon Digital Services diseña, construye y optimiza productos digitales que se notan: sitios rápidos, marcas con dirección y campañas que se pueden medir, no adivinar.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">Solicitar diagnóstico gratuito</a>
+        <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-stat">
+          <span class="num">120+</span>
+          <span class="label">Proyectos entregados</span>
+        </div>
+        <div class="trust-stat">
+          <span class="num">98%</span>
+          <span class="label">Clientes que renuevan</span>
+        </div>
+        <div class="trust-stat">
+          <span class="num">6 países</span>
+          <span class="label">Equipos atendidos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="signal-panel" aria-hidden="true">
+      <div class="panel-head">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <span class="panel-title">Monitor de señal</span>
+        <span class="panel-status"><span class="dot"></span>En vivo</span>
+      </div>
+      <div class="wave-box">
+        <svg viewBox="0 0 300 80" preserveAspectRatio="none">
+          <polyline class="wave-line" id="waveLine" points="0,40 300,40"/>
+        </svg>
+      </div>
+      <div class="panel-metrics">
+        <div class="metric-card">
+          <span class="m-label">Tráfico</span>
+          <span class="m-value up" id="metricTraffic">+0%</span>
+        </div>
+        <div class="metric-card">
+          <span class="m-label">Conversión</span>
+          <span class="m-value" id="metricConv">0.0%</span>
+        </div>
+        <div class="metric-card">
+          <span class="m-label">Uptime</span>
+          <span class="m-value up">99.98%</span>
+        </div>
+      </div>
+      <div class="panel-log">
+        <div class="line"><span class="t">[OK]</span><span><span class="tag">deploy</span> completado en producción</span></div>
+        <div class="line"><span class="t">[OK]</span><span><span class="tag">analytics</span> sincronizado, 0 errores</span></div>
+        <div class="line"><span class="t">[OK]</span><span><span class="tag">core web vitals</span> en verde</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="container about-grid">
+    <div class="about-head">
+      <p class="eyebrow">Quiénes somos</p>
+      <h2>Una agencia que opera como equipo de producto, no como proveedor.</h2>
+      <p>Nacimos en 2018 con una idea simple: las empresas no necesitan más entregables, necesitan resultados que se puedan rastrear. Por eso cada proyecto en Nexxon arranca con una métrica clara y termina cuando esa métrica se mueve.</p>
+    </div>
+    <div class="about-list">
+      <div class="about-item">
+        <span class="num">01</span>
+        <h3>Equipo senior dedicado</h3>
+        <p>Trabajas directo con quienes diseñan y programan, sin intermediarios que diluyan el mensaje.</p>
+      </div>
+      <div class="about-item">
+        <span class="num">02</span>
+        <h3>Decisiones con datos</h3>
+        <p>Cada cambio de diseño o copy se valida con analítica real antes de declararlo terminado.</p>
+      </div>
+      <div class="about-item">
+        <span class="num">03</span>
+        <h3>Entregas por etapas</h3>
+        <p>Ves avances cada semana, no un entregable único al final de meses de trabajo a ciegas.</p>
+      </div>
+      <div class="about-item">
+        <span class="num">04</span>
+        <h3>Soporte post-lanzamiento</h3>
+        <p>Seguimos monitoreando rendimiento y seguridad después de publicar, no desaparecemos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="services-head">
+      <p class="eyebrow">Lo que hacemos</p>
+      <h2>Servicios diseñados para moverse a la velocidad de tu negocio.</h2>
+      <p>Trabajamos por bloques que se combinan según lo que necesites: desde un sitio nuevo hasta una operación digital completa.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+        </div>
+        <h3>Diseño web &amp; UI/UX</h3>
+        <p>Interfaces claras y rápidas de usar, construidas a partir de cómo navegan realmente tus clientes.</p>
+        <div class="service-tags"><span>Wireframes</span><span>Prototipos</span><span>Sistemas de diseño</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+        </div>
+        <h3>Desarrollo a medida</h3>
+        <p>Sitios y aplicaciones construidos sobre código limpio, pensados para crecer sin reescribirse.</p>
+        <div class="service-tags"><span>Front-end</span><span>Back-end</span><span>Integraciones</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg>
+        </div>
+        <h3>Marketing de performance</h3>
+        <p>Campañas en buscadores y redes con presupuesto optimizado hacia conversiones reales, no clics vacíos.</p>
+        <div class="service-tags"><span>SEM</span><span>SEO</span><span>Social Ads</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+        </div>
+        <h3>Identidad de marca</h3>
+        <p>Logotipo, paleta y tono de voz consistentes en cada punto de contacto con tu audiencia.</p>
+        <div class="service-tags"><span>Branding</span><span>Naming</span><span>Guías de marca</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3>Analítica y datos</h3>
+        <p>Paneles claros que muestran qué está funcionando para decidir con información, no con intuición.</p>
+        <div class="service-tags"><span>Dashboards</span><span>GA4</span><span>Reportes</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <h3>Mantenimiento &amp; seguridad</h3>
+        <p>Monitoreo continuo, copias de respaldo y actualizaciones para que tu sitio no se vuelva un riesgo.</p>
+        <div class="service-tags"><span>Hosting</span><span>SSL</span><span>Backups</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonios">
+  <div class="container">
+    <div class="testimonials-head">
+      <p class="eyebrow">Casos reales</p>
+      <h2>Empresas que ya movieron su métrica con nosotros.</h2>
+    </div>
+    <div class="testimonials-track">
+
+      <article class="testimonial-card">
+        <span class="t-quote-mark" aria-hidden="true">"</span>
+        <div class="t-stars" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+        </div>
+        <p class="t-quote">Nexxon rediseñó nuestro sitio de ventas y en dos meses la tasa de conversión subió de 1.2% a 3.4%. Lo que más valoramos es que nos explican cada decisión con datos.</p>
+        <div class="t-person">
+          <span class="t-avatar">MR</span>
+          <div>
+            <div class="t-name">Marina Reyes</div>
+            <div class="t-role">Directora comercial, Vortis Retail</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <span class="t-quote-mark" aria-hidden="true">"</span>
+        <div class="t-stars" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+        </div>
+        <p class="t-quote">Pasamos de tener un sitio que tardaba 6 segundos en cargar a uno que carga en menos de 1.5. El soporte después del lanzamiento ha sido tan bueno como el desarrollo mismo.</p>
+        <div class="t-person">
+          <span class="t-avatar">JC</span>
+          <div>
+            <div class="t-name">Julián Castaño</div>
+            <div class="t-role">CEO, Estudio Lumbre</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <span class="t-quote-mark" aria-hidden="true">"</span>
+        <div class="t-stars" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 6.2 6.4.5-4.9 4.1 1.6 6.2L10 14.8 4.3 18l1.6-6.2L1 7.7l6.4-.5z"/></svg>
+        </div>
+        <p class="t-quote">Necesitábamos una identidad de marca que se sintiera seria para inversionistas, pero cercana para usuarios. Nexxon encontró ese punto medio sin que se sintiera genérico.</p>
+        <div class="t-person">
+          <span class="t-avatar">AF</span>
+          <div>
+            <div class="t-name">Andrea Fonseca</div>
+            <div class="t-role">Cofundadora, Pliego Fintech</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow">Hablemos</p>
+      <h2>Cuéntanos qué quieres mover y te decimos cómo.</h2>
+      <p>Respondemos en menos de 24 horas hábiles con un diagnóstico inicial sin costo. Sin formularios eternos, sin letra pequeña.</p>
+      <div class="contact-channels">
+        <div class="channel">
+          <span class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6l9 7 9-7M3 6v12h18V6"/></svg>
+          </span>
+          <div>
+            <div class="channel-label">Correo</div>
+            <div class="channel-value">hola@nexxondigital.com</div>
+          </div>
+        </div>
+        <div class="channel">
+          <span class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.69 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0122 16.92z"/></svg>
+          </span>
+          <div>
+            <div class="channel-label">Teléfono</div>
+            <div class="channel-value">+52 55 1234 5678</div>
+          </div>
+        </div>
+        <div class="channel">
+          <span class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div>
+            <div class="channel-label">Oficina</div>
+            <div class="channel-value">Ciudad de México, MX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-row two">
+        <div class="field">
+          <label for="name">Nombre completo</label>
+          <input type="text" id="name" name="name" placeholder="Ej. Camila Torres" required>
+        </div>
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@empresa.com" required>
+        </div>
+      </div>
+      <div class="form-row two">
+        <div class="field">
+          <label for="company">Empresa</label>
+          <input type="text" id="company" name="company" placeholder="Nombre de tu empresa">
+        </div>
+        <div class="field">
+          <label for="service">Servicio de interés</label>
+          <select id="service" name="service">
+            <option value="">Selecciona una opción</option>
+            <option value="diseno">Diseño web &amp; UI/UX</option>
+            <option value="desarrollo">Desarrollo a medida</option>
+            <option value="marketing">Marketing de performance</option>
+            <option value="marca">Identidad de marca</option>
+            <option value="datos">Analítica y datos</option>
+            <option value="mantenimiento">Mantenimiento &amp; seguridad</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="message">Cuéntanos sobre tu proyecto</label>
+          <textarea id="message" name="message" placeholder="¿Qué te gustaría lograr en los próximos meses?" required></textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <span class="form-note">Tus datos solo se usan para responder tu mensaje.</span>
+        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+      </div>
+      <div class="form-success" id="formSuccess" role="status">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Mensaje enviado. Te contactaremos muy pronto.</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 17L10 7L14 14L20 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          Nexxon
+        </a>
+        <p>Agencia de servicios digitales especializada en diseño, desarrollo y crecimiento medible para empresas que quieren moverse rápido sin perder profesionalismo.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Diseño web &amp; UI/UX</a></li>
+          <li><a href="#servicios">Desarrollo a medida</a></li>
+          <li><a href="#servicios">Marketing de performance</a></li>
+          <li><a href="#servicios">Identidad de marca</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#nosotros">Sobre nosotros</a></li>
+          <li><a href="#testimonios">Casos de éxito</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#top">Inicio</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos de servicio</a></li>
+          <li><a href="#">Aviso de cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Nexxon Digital Services. Todos los derechos reservados.</p>
+      <div class="social-links" aria-label="Redes sociales">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V9h3zM6.5 7.7A1.7 1.7 0 118.2 6a1.7 1.7 0 01-1.7 1.7zM19 19h-3v-5.2c0-1.2-.4-2-1.5-2-.8 0-1.3.6-1.5 1.1-.1.2-.1.5-.1.8V19h-3s.1-9 0-10h3v1.4c.4-.6 1.2-1.5 2.8-1.5 2 0 3.3 1.3 3.3 4.1z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.5h3.4l-7.5 8.6 8.8 11.7h-6.9l-5.4-7.1-6.2 7.1H1.3l8-9.2L.9 1.5h7l4.9 6.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- Mobile menu toggle ---- */
+  var menuToggle = document.getElementById('menuToggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var menuIcon = document.getElementById('menuIcon');
+  var openIcon = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+  var closeIcon = '<line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>';
+
+  menuToggle.addEventListener('click', function(){
+    var isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    menuIcon.innerHTML = isOpen ? closeIcon : openIcon;
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuIcon.innerHTML = openIcon;
+    });
+  });
+
+  /* ---- Hero signal panel: animated waveform ---- */
+  var waveLine = document.getElementById('waveLine');
+  var t = 0;
+  function drawWave(){
+    var points = [];
+    var w = 300, h = 80, mid = h/2;
+    for(var x = 0; x <= w; x += 6){
+      var y = mid
+        + Math.sin((x*0.04) + t) * 14
+        + Math.sin((x*0.11) + t*1.7) * 6;
+      points.push(x + ',' + y.toFixed(1));
+    }
+    waveLine.setAttribute('points', points.join(' '));
+    t += 0.06;
+    requestAnimationFrame(drawWave);
+  }
+  if(waveLine && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    requestAnimationFrame(drawWave);
+  }
+
+  /* ---- Hero signal panel: animated metric counters ---- */
+  function animateCount(el, target, prefix, suffix, decimals, duration){
+    var start = 0;
+    var startTime = null;
+    function step(timestamp){
+      if(!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var value = start + (target - start) * progress;
+      el.textContent = prefix + (decimals ? value.toFixed(decimals) : Math.round(value)) + suffix;
+      if(progress < 1){
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  var metricTraffic = document.getElementById('metricTraffic');
+  var metricConv = document.getElementById('metricConv');
+  if(metricTraffic && metricConv){
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduceMotion){
+      metricTraffic.textContent = '+24%';
+      metricConv.textContent = '3.4%';
+    } else {
+      animateCount(metricTraffic, 24, '+', '%', 0, 1800);
+      animateCount(metricConv, 3.4, '', '%', 1, 1800);
+    }
+  }
+
+  /* ---- Contact form: client-side only submission feedback ---- */
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('formSuccess');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!form.checkValidity()){
+        form.reportValidity();
+        return;
+      }
+      success.classList.add('show');
+      form.reset();
+      success.scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
+  }
+
+  /* ---- Reveal on scroll ---- */
+  var revealTargets = document.querySelectorAll('.service-card, .about-item, .testimonial-card');
+  if('IntersectionObserver' in window){
+    revealTargets.forEach(function(el){
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(14px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+    });
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    revealTargets.forEach(function(el){ observer.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>

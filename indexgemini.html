@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexxon Digital Services | Impulsando el Futuro Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#0b0f19',
+                        darkCard: '#111827',
+                        neonBlue: '#00d2ff',
+                        neonPurple: '#9d4edd',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        /* Efecto de resplandor futurista de fondo */
+        .glow-bg {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,210,255,0.08) 0%, rgba(157,78,221,0.05) 50%, rgba(0,0,0,0) 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* Glassmorphism */
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="glow-bg top-[-10%] left-[-10%]"></div>
+    <div class="glow-bg top-[40%] right-[-10%]"></div>
+    <div class="glow-bg bottom-[-10%] left-[20%]"></div>
+
+    <header class="fixed top-0 left-0 w-full z-50 glass-effect transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2 text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
+                NEXXON
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#inicio" class="hover:text-neonBlue transition-colors">Inicio</a>
+                <a href="#nosotros" class="hover:text-neonBlue transition-colors">Nosotros</a>
+                <a href="#servicios" class="hover:text-neonBlue transition-colors">Servicios</a>
+                <a href="#testimonios" class="hover:text-neonBlue transition-colors">Testimonios</a>
+                <a href="#contacto" class="hover:text-neonBlue transition-colors">Contacto</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="#contacto" class="px-5 py-2.5 text-sm font-medium rounded-lg bg-gradient-to-r from-neonBlue to-neonPurple text-darkBg font-bold hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(0,210,255,0.3)]">
+                    Empezar Proyecto
+                </a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none text-2xl" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full glass-effect border-b border-gray-800 flex flex-col p-6 space-y-4 text-center text-lg">
+            <a href="#inicio" class="mobile-link py-2 text-gray-300 hover:text-neonBlue transition-colors">Inicio</a>
+            <a href="#nosotros" class="mobile-link py-2 text-gray-300 hover:text-neonBlue transition-colors">Nosotros</a>
+            <a href="#servicios" class="mobile-link py-2 text-gray-300 hover:text-neonBlue transition-colors">Servicios</a>
+            <a href="#testimonios" class="mobile-link py-2 text-gray-300 hover:text-neonBlue transition-colors">Testimonios</a>
+            <a href="#contacto" class="mobile-link py-2 text-gray-300 hover:text-neonBlue transition-colors">Contacto</a>
+            <a href="#contacto" class="mobile-link inline-block px-5 py-2.5 rounded-lg bg-gradient-to-r from-neonBlue to-neonPurple text-darkBg font-bold">Empezar Proyecto</a>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        
+        <section id="inicio" class="min-h-screen flex items-center justify-center pt-24 px-6 relative">
+            <div class="max-w-5xl mx-auto text-center space-y-8">
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full glass-effect text-xs font-semibold tracking-wide text-neonBlue border border-neonBlue/20 uppercase">
+                    <span class="flex h-2 w-2 rounded-full bg-neonBlue animate-pulse"></span>
+                    <span>Agencia Digital Next-Gen</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-none">
+                    Evolucionamos tu <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-indigo-400 to-neonPurple">
+                        Presencia Digital
+                    </span>
+                </h1>
+                
+                <p class="max-w-2xl mx-auto text-gray-400 text-base sm:text-xl font-light leading-relaxed">
+                    Diseñamos, desarrollamos y escalamos productos digitales de alto impacto. Combinamos ingeniería avanzada con UX/UI disruptiva.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#servicios" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-neonBlue to-neonPurple text-darkBg font-bold hover:opacity-90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-neonBlue/20 text-center">
+                        Nuestros Servicios
+                    </a>
+                    <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-effect text-white hover:bg-gray-800/50 transition-all border border-gray-700 hover:border-gray-500 text-center">
+                        Hablemos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="py-24 sm:py-32 px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-xs font-bold tracking-widest text-neonPurple uppercase">Quiénes Somos</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                        Transformamos ideas complejas en interfaces sencillas y código robusto.
+                    </h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        En **Nexxon**, no solo creamos páginas web; estructuramos arquitecturas digitales preparadas para el futuro. Nuestro enfoque se centra en la optimización del rendimiento, la accesibilidad y una experiencia de usuario que convierta visitantes en clientes fidelizados.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="border-l-2 border-neonBlue pl-4">
+                            <span class="block text-3xl font-bold text-white">99%</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider">Uptime & Performance</span>
+                        </div>
+                        <div class="border-l-2 border-neonPurple pl-4">
+                            <span class="block text-3xl font-bold text-white">+50</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider">Proyectos Desplegados</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative flex justify-center items-center h-80 sm:h-96 rounded-2xl glass-effect overflow-hidden border border-gray-800">
+                    <div class="absolute w-64 h-64 bg-neonBlue/10 rounded-full filter blur-3xl animate-blob"></div>
+                    <div class="absolute w-64 h-64 bg-neonPurple/10 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+                    <div class="z-10 text-center p-8 space-y-4">
+                        <i class="fa-solid fa-cubes text-5xl text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple"></i>
+                        <p class="text-sm font-mono text-gray-500">&lt;innovación_continua&gt;</p>
+                        <p class="text-gray-300 font-medium">Buscamos la excelencia técnica en cada línea de código.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="py-24 sm:py-32 px-6 bg-gray-950/40">
+            <div class="max-w-7xl mx-auto space-y-16">
+                <div class="text-center space-y-4">
+                    <h2 class="text-xs font-bold tracking-widest text-neonBlue uppercase">Servicios de Ecosistema</h2>
+                    <h3 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">¿Qué podemos construir juntos?</h3>
+                    <p class="max-w-xl mx-auto text-gray-400 font-light">Soluciones modulares e integrales adaptadas a las exigencias del mercado actual.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-2xl darkCard glass-effect border border-gray-800 hover:border-neonBlue/30 transition-all duration-300 group hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue group-hover:bg-neonBlue group-hover:text-darkBg transition-all duration-300">
+                            <i class="fa-solid fa-laptop-code text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3">Desarrollo Web Premium</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed font-light">Sitios web y web apps ultrarrápidas, optimizadas para SEO y construidas con componentes limpios y mantenibles.</p>
+                    </div>
+                    <div class="p-8 rounded-2xl darkCard glass-effect border border-gray-800 hover:border-neonPurple/30 transition-all duration-300 group hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center mb-6 text-neonPurple group-hover:bg-neonPurple group-hover:text-darkBg transition-all duration-300">
+                            <i class="fa-solid fa-compass-drafting text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3">Diseño UX/UI Avanzado</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed font-light">Prototipado interactivo y sistemas de diseño centrados en el usuario final, garantizando una navegación intuitiva.</p>
+                    </div>
+                    <div class="p-8 rounded-2xl darkCard glass-effect border border-gray-800 hover:border-neonBlue/30 transition-all duration-300 group hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue group-hover:bg-neonBlue group-hover:text-darkBg transition-all duration-300">
+                            <i class="fa-solid fa-chart-line text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-3">Growth Marketing</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed font-light">Estrategias basadas en datos para traccionar tráfico cualificado y maximizar el embudo de conversión de tu negocio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="py-24 sm:py-32 px-6">
+            <div class="max-w-7xl mx-auto space-y-16">
+                <div class="text-center space-y-4">
+                    <h2 class="text-xs font-bold tracking-widest text-neonPurple uppercase">Casos de Éxito</h2>
+                    <h3 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">Lo que dicen nuestros partners</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="p-8 rounded-2xl glass-effect relative border border-gray-800 flex flex-col justify-between">
+                        <i class="fa-solid fa-quote-left text-3xl text-gray-700 absolute top-6 right-6 opacity-40"></i>
+                        <p class="text-gray-300 font-light italic leading-relaxed mb-6">
+                            "El rediseño de nuestra plataforma incrementó las conversiones en un 40% en menos de tres meses. El código entregado es una obra de arte por su limpieza."
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-neonBlue to-neonPurple flex items-center justify-center text-white font-bold text-sm">
+                                EA
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-white">Elena Alvarez</h5>
+                                <p class="text-xs text-gray-500">Product Manager, TechFlow</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 rounded-2xl glass-effect relative border border-gray-800 flex flex-col justify-between">
+                        <i class="fa-solid fa-quote-left text-3xl text-gray-700 absolute top-6 right-6 opacity-40"></i>
+                        <p class="text-gray-300 font-light italic leading-relaxed mb-6">
+                            "Nexxon entendió nuestra visión desde el primer día. Su velocidad de respuesta y dominio técnico de frontend moderno superó nuestras expectativas."
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-neonPurple to-neonBlue flex items-center justify-center text-white font-bold text-sm">
+                                MB
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-white">Marcos Benítez</h5>
+                                <p class="text-xs text-gray-500">Fundador, Apex Retail</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="py-24 sm:py-32 px-6 bg-gray-950/40">
+            <div class="max-w-3xl mx-auto space-y-12">
+                <div class="text-center space-y-4">
+                    <h2 class="text-xs font-bold tracking-widest text-neonBlue uppercase">Contacto</h2>
+                    <h3 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">Iniciemos la evolución</h3>
+                    <p class="text-gray-400 font-light">Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas.</p>
+                </div>
+
+                <form id="contact-form" class="p-8 sm:p-10 rounded-2xl glass-effect border border-gray-800 space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label for="name" class="text-xs font-medium text-gray-400 uppercase tracking-wider">Nombre completo</label>
+                            <input type="text" id="name" required class="w-full bg-darkBg border border-gray-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-neonBlue transition-colors text-sm" placeholder="Ej. Juan Pérez">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="email" class="text-xs font-medium text-gray-400 uppercase tracking-wider">Correo Electrónico</label>
+                            <input type="email" id="email" required class="w-full bg-darkBg border border-gray-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-neonBlue transition-colors text-sm" placeholder="juan@empresa.com">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="subject" class="text-xs font-medium text-gray-400 uppercase tracking-wider">Asunto</label>
+                        <input type="text" id="subject" required class="w-full bg-darkBg border border-gray-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-neonBlue transition-colors text-sm" placeholder="Ej. Desarrollo de nueva Web App">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="message" class="text-xs font-medium text-gray-400 uppercase tracking-wider">Mensaje</label>
+                        <textarea id="message" rows="4" required class="w-full bg-darkBg border border-gray-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-neonBlue transition-colors text-sm resize-none" placeholder="Cuéntanos brevemente sobre los requerimientos..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-neonBlue to-neonPurple text-darkBg font-bold transition-all hover:opacity-90 shadow-md">
+                        Enviar Propuesta
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-gray-900 bg-darkBg relative z-10">
+        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <span class="text-xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
+                NEXXON
+            </span>
+            <p class="text-xs text-gray-500 font-light text-center sm:text-left">
+                &copy; 2026 Nexxon Digital Services. Todos los derechos reservados. Diseñado con precisión UX/UI.
+            </p>
+            <div class="flex space-x-6 text-gray-500 text-lg">
+                <a href="#" class="hover:text-neonBlue transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-neonBlue transition-colors" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="hover:text-neonBlue transition-colors" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Controladores del Menú Mobile Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars-staggered';
+            } else {
+                icon.className = 'fa-solid fa-xmark';
+            }
+        };
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Intercepción básica del Formulario de Contacto
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por contactar con Nexxon! Tu mensaje simulado ha sido enviado con éxito del lado del cliente.');
+            this.reset();
+        });
+
+        // Efecto dinámico de scroll en el Header (Opacidad al bajar)
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-3', 'shadow-2xl', 'bg-darkBg/90');
+                header.classList.remove('py-4', 'bg-transparent');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-3', 'shadow-2xl', 'bg-darkBg/90');
+            }
+        });
+    </script>
+</body>
+</html>
